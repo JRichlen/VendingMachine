@@ -6,7 +6,14 @@ class VendingMachine {
         this.storedCoins = [];
         this.insertedCoins = [];
     }
-    
+
+    displayInsertCoin() {
+        return 'insert coin';
+    }
+
+    get display() {
+        return this.displayInsertCoin();
+    }
     
 }
 module.exports = VendingMachine;

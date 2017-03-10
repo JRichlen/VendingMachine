@@ -15,5 +15,6 @@ describe('VendingMachine', function () {
         it('should return "$0.10"');
         it('should return "$0.05"');
         it('should return the Penny');
+        it('should return "$0.65"');
     });
 });
