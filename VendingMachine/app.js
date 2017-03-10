@@ -1,5 +1,12 @@
 'use strict';
-class VendingMachine {
 
+class VendingMachine {
+    constructor() {
+        this.products = {};
+        this.storedCoins = [];
+        this.insertedCoins = [];
+    }
+    
+    
 }
 module.exports = VendingMachine;
