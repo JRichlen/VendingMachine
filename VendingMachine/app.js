@@ -1,3 +1,5 @@
 'use strict';
+class VendingMachine {
 
-console.log('Hello world');
+}
+module.exports = VendingMachine;
