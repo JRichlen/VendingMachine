@@ -1,0 +1,9 @@
+{
+  "name": "vending-machine",
+  "version": "0.0.0",
+  "description": "VendingMachine",
+  "main": "app.js",
+  "author": {
+    "name": "Jmric"
+  }
+}
