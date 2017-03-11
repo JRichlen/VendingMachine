@@ -74,8 +74,17 @@ describe('VendingMachine', function () {
             var coin = new Quarter();
             assert(vendor.isAcceptedCoin(coin));
         })
-        it('should accept a dime')
-        it('should accept a nickel')
-        it('should reject a penny')
+        it('should accept a dime', function () {
+            var coin = new Dime();
+            assert(vendor.isAcceptedCoin(coin));
+        })
+        it('should accept a nickel', function () {
+            var coin = new Nickel();
+            assert(vendor.isAcceptedCoin(coin));
+        })
+        it('should reject a penny', function () {
+            var coin = new Penny();
+            assert.equal(vendor.isAcceptedCoin(coin), false);
+        })
     })
 });
