@@ -16,11 +16,21 @@ describe('VendingMachine', function () {
             var coin = new Quarter();
             assert(vendor.isCoin(coin, coin.weight, coin.diameter))
         });
-        it('should recognize that a quarter is not a nickel', function () {
+        it('should recognize a quarter is a quarter', function () {
             var vendor = new VendingMachine();
-            var quarter = new Quarter();
-            var nickel = new Nickel();
-            assert.equal(vendor.isCoin(quarter, nickel.weight, nickel.diameter), false);
+            assert(vendor.isQuarter(new Quarter()));
+        });
+        it('should recognize a nickel is not a quarter', function () {
+            var vendor = new VendingMachine();
+            assert.equal(vendor.isQuarter(new Nickel()), false);
+        })
+        it('should recognize a dime is not a quarter', function () {
+            var vendor = new VendingMachine();
+            assert.equal(vendor.isQuarter(new Dime()), false);
+        })
+        it('should recognize a penny is not a quarter', function () {
+            var vendor = new VendingMachine();
+            assert.equal(vendor.isQuarter(new Penny()), false);
         })
     });
 });

@@ -18,6 +18,10 @@ class VendingMachine {
     isCoin(coin, expectedWeight, expectedDiameter) {
         return coin.weight == expectedWeight & coin.diameter == expectedDiameter;
     }
+
+    isQuarter(coin) {
+        return this.isCoin(coin, 5.67, 24.26);
+    }
     
 }
 module.exports = VendingMachine;
