@@ -31,9 +31,6 @@
     <Compile Include="coins\dime.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="coins\coin.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="coins\nickel.js">
       <SubType>Code</SubType>
     </Compile>
