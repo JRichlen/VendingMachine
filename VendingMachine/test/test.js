@@ -34,6 +34,12 @@ describe('VendingMachine', function () {
         it('should recognize a penny is not a quarter', function () {
             assert.equal(vendor.isQuarter(new Penny()), false);
         })
+
+        it('should assign quarter a value of 0.25', function () {
+            var coin = new Quarter();
+            vendor.isQuarter(coin);
+            assert.equal(coin.value, 0.25, 'invalid value assigned to quarter');
+        })
     })
 
     describe('#isDime', function () {
@@ -50,6 +56,12 @@ describe('VendingMachine', function () {
         it('should recognize a penny is not a dime', function () {
             assert.equal(vendor.isDime(new Penny()), false);
         })
+
+        it('should assign dime a value of 0.10', function () {
+            var coin = new Dime();
+            vendor.isDime(coin);
+            assert.equal(coin.value, 0.10, 'invalid value assigned to dime');
+        })
     })
 
     describe('#isNickel', function () {
@@ -65,6 +77,12 @@ describe('VendingMachine', function () {
         })
         it('should recognize a penny is not a nickel', function () {
             assert.equal(vendor.isNickel(new Penny()), false);
+        })
+
+        it('should assign nickel a value of 0.05', function () {
+            var coin = new Nickel();
+            vendor.isNickel(coin);
+            assert.equal(coin.value, 0.05, 'invalid value assigned to nickel');
         })
     }) 
 
@@ -96,4 +114,4 @@ describe('VendingMachine', function () {
             assert(vendor.insertedCoins.length);
         })
     })
-});
+ });
