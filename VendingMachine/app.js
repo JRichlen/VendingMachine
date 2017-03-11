@@ -14,6 +14,10 @@ class VendingMachine {
     get display() {
         return this.displayInsertCoin();
     }
+
+    isCoin(coin, expectedWeight, expectedDiameter) {
+
+    }
     
 }
 module.exports = VendingMachine;

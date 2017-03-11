@@ -11,10 +11,13 @@ describe('VendingMachine', function () {
         assert.equal('insert coin', vendor.display);
     });
     describe('#acceptCoin', function () {
-        it('should return "$0.25"');
-        it('should return "$0.10"');
-        it('should return "$0.05"');
-        it('should return the Penny');
-        it('should return "$0.65"');
+        it('should recognize a coin', function () {
+            var coin = {
+                weight: 1,
+                diameter: 1
+            };
+            var vendor = new VendingMachine();
+            assert(vendor.isCoin(coin, 1, 1))
+        })
     });
 });
