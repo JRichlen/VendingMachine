@@ -18,6 +18,12 @@ describe('VendingMachine', function () {
             var coin = new Quarter();
             assert(vendor.isCoin(coin, coin.weight, coin.diameter))
         })
+
+        it('should assign a value to a recognized coin', function () {
+            var coin = new Quarter();
+            vendor.isCoin(coin, coin.weight, coin.diameter, 0.25);
+            assert.equal(coin.value, 0.25, 'failed to assign the coin a value');
+        })
     })
 
     describe('#isQuarter', function () {

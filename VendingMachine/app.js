@@ -17,8 +17,12 @@ class VendingMachine {
         return this.displayInsertCoin();
     }
 
-    isCoin(coin, expectedWeight, expectedDiameter) {
-        return coin.weight == expectedWeight & coin.diameter == expectedDiameter;
+    isCoin(coin, expectedWeight, expectedDiameter, coinValue) {
+        if (coin.weight == expectedWeight & coin.diameter == expectedDiameter) {
+            if (coinValue) coin.value = coinValue;
+            return true;
+        }
+        else return false;
     }
 
     isQuarter(coin) {
