@@ -5,8 +5,8 @@ class VendingMachine {
         this.products = {};
         this.storedCoins = [];
         this.insertedCoins = [];
-        this.storedFunds = 0;
-        this.insertedFunds = 0;
+        this.storedFunds = 0.00;
+        this.insertedFunds = 0.00;
     }
 
     displayInsertCoin() {
@@ -42,6 +42,7 @@ class VendingMachine {
     }
 
     addCoinToInsertedCoins(coin) {
+        this.insertedFunds += coin.value;
         this.insertedCoins.push(coin);
     }
 

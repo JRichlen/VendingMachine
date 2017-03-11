@@ -113,11 +113,40 @@ describe('VendingMachine', function () {
     })
 
     describe('#addCoinToInsertedCoins', function () {
-        var vendor = new VendingMachine();
+        
         it('should add coin to the inserted coins array', function () {
+            var vendor = new VendingMachine();
             var coin = new Quarter();
             vendor.addCoinToInsertedCoins(coin);
             assert(vendor.insertedCoins.length);
+        })
+        it('should increase inserted funds when coin added to inserted coins', function () {
+            var vendor = new VendingMachine();
+            var expectedFundsAfterCoinIsInserted;
+            var fundsBeforeCoinIsInserted = vendor.insertedFunds;
+            var coin = new Quarter();
+            vendor.isQuarter(coin);
+            expectedFundsAfterCoinIsInserted = coin.value + fundsBeforeCoinIsInserted;
+            vendor.addCoinToInsertedCoins(coin);
+            assert.equal(vendor.insertedFunds, expectedFundsAfterCoinIsInserted);
+        })
+        it('should increase inserted funds when multiple coins are inserted', function () {
+            var vendor = new VendingMachine();
+            var fundsBeforeCoinIsInserted = vendor.insertedFunds;
+            var expectedFundsAfterCoinIsInserted = fundsBeforeCoinIsInserted;
+            var coin = new Quarter();
+            vendor.isQuarter(coin);
+            expectedFundsAfterCoinIsInserted += coin.value;
+            vendor.addCoinToInsertedCoins(coin);
+            var coin = new Dime();
+            vendor.isDime(coin);
+            expectedFundsAfterCoinIsInserted += coin.value;
+            vendor.addCoinToInsertedCoins(coin);
+            var coin = new Nickel();
+            vendor.isNickel(coin);
+            expectedFundsAfterCoinIsInserted += coin.value;
+            vendor.addCoinToInsertedCoins(coin);
+            assert.equal(vendor.insertedFunds, expectedFundsAfterCoinIsInserted);
         })
     })
  });
