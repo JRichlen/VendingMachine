@@ -31,13 +31,10 @@ class VendingMachine {
         return this.isCoin(coin, 5, 21.21);
     }
 
-    acceptCoin(coin) {
-
-    }
-
     isAcceptedCoin(coin) {
-        
+        return this.isQuarter(coin) || this.isNickel(coin) || this.isDime(coin) || false; 
     }
-    
+
+
 }
 module.exports = VendingMachine;

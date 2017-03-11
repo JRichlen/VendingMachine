@@ -57,7 +57,7 @@ describe('VendingMachine', function () {
         it('should recognize a nickel is a nickel', function () {
             assert(vendor.isNickel(new Nickel()));
         })
-        it('should recognize a nickel is not a nickel', function () {
+        it('should recognize a dime is not a nickel', function () {
             assert.equal(vendor.isNickel(new Dime()), false);
         })
         it('should recognize a quarter is not a nickel', function () {
@@ -72,19 +72,19 @@ describe('VendingMachine', function () {
         var vendor = new VendingMachine();
         it('should accept a quarter', function () {
             var coin = new Quarter();
-            assert(vendor.isAcceptedCoin(coin));
+            assert(vendor.isAcceptedCoin(coin), 'quarter was rejected');
         })
         it('should accept a dime', function () {
             var coin = new Dime();
-            assert(vendor.isAcceptedCoin(coin));
+            assert(vendor.isAcceptedCoin(coin), 'dime was rejected');
         })
         it('should accept a nickel', function () {
             var coin = new Nickel();
-            assert(vendor.isAcceptedCoin(coin));
+            assert(vendor.isAcceptedCoin(coin), 'nickel was rejected' );
         })
         it('should reject a penny', function () {
             var coin = new Penny();
-            assert.equal(vendor.isAcceptedCoin(coin), false);
+            assert.equal(vendor.isAcceptedCoin(coin), false, 'penny was accepted');
         })
     })
 });
