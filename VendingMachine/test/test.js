@@ -12,12 +12,9 @@ describe('VendingMachine', function () {
     });
     describe('#acceptCoin', function () {
         it('should recognize a coin', function () {
-            var coin = {
-                weight: 1,
-                diameter: 1
-            };
             var vendor = new VendingMachine();
-            assert(vendor.isCoin(coin, 1, 1))
+            var coin = new Quarter();
+            assert(vendor.isCoin(coin, coin.weight, coin.diameter))
         })
     });
 });

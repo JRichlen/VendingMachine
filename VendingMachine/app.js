@@ -16,7 +16,7 @@ class VendingMachine {
     }
 
     isCoin(coin, expectedWeight, expectedDiameter) {
-
+        return coin.weight == expectedWeight & coin.diameter == expectedDiameter;
     }
     
 }
