@@ -30,6 +30,14 @@ class VendingMachine {
     isNickel(coin) {
         return this.isCoin(coin, 5, 21.21);
     }
+
+    acceptCoin(coin) {
+
+    }
+
+    isAcceptedCoin(coin) {
+        
+    }
     
 }
 module.exports = VendingMachine;
