@@ -35,6 +35,5 @@ class VendingMachine {
         return this.isQuarter(coin) || this.isNickel(coin) || this.isDime(coin) || false; 
     }
 
-
 }
 module.exports = VendingMachine;

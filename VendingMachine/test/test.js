@@ -87,4 +87,18 @@ describe('VendingMachine', function () {
             assert.equal(vendor.isAcceptedCoin(coin), false, 'penny was accepted');
         })
     })
+
+    describe('#addCoinToArray', function () {
+        var vendor = new VendingMachine();
+        it('should add coin to the array') {
+            var array = [];
+            var coin = new Quarter;
+            vendor.addCoinToArray(array, coin)
+            assert(array.length);
+        }
+    })
+
+    describe('#addCoinToInsertedCoins', function () {
+        it('should add coin to the inserted coins array')
+    })
 });
