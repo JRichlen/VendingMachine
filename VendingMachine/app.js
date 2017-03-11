@@ -26,15 +26,15 @@ class VendingMachine {
     }
 
     isQuarter(coin) {
-        return this.isCoin(coin, 5.67, 24.26);
+        return this.isCoin(coin, 5.67, 24.26, 0.25);
     }
 
     isDime(coin) {
-        return this.isCoin(coin, 2.268, 17.91);
+        return this.isCoin(coin, 2.268, 17.91, 0.10);
     }
 
     isNickel(coin) {
-        return this.isCoin(coin, 5, 21.21);
+        return this.isCoin(coin, 5, 21.21, 0.05);
     }
 
     isAcceptedCoin(coin) {
