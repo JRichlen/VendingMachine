@@ -88,17 +88,12 @@ describe('VendingMachine', function () {
         })
     })
 
-    describe('#addCoinToArray', function () {
-        var vendor = new VendingMachine();
-        it('should add coin to the array', function() {
-            var array = [];
-            var coin = new Quarter;
-            vendor.addCoinToArray(array, coin)
-            assert(array.length);
-        })
-    })
-
     describe('#addCoinToInsertedCoins', function () {
-        it('should add coin to the inserted coins array')
+        var vendor = new VendingMachine();
+        it('should add coin to the inserted coins array', function () {
+            var coin = new Quarter();
+            vendor.addCoinToInsertedCoins(coin);
+            assert(vendor.insertedCoins.length);
+        })
     })
 });
