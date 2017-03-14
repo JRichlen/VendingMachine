@@ -175,9 +175,38 @@ describe('VendingMachine', function () {
     })
 
     describe('#returnCoins', function () {
-        it('should return inserted coins')
-        it('should not have any inserted coins')
-        it('should not have any inserted funds')
-        it('should display "insert coins"')
+        it('should return inserted coins', function () {
+            var expectedCoinsToBeReturned;
+            var vendor = new VendingMachine();
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Dime());
+            vendor.acceptCoin(new Nickel());
+            expectedCoinsToBeReturned = vendor.insertedCoins;
+            assert.equal(vendor.returnCoins(), expectedCoinsToBeReturned);
+        })
+        it('should not have any inserted coins', function () {
+            var vendor = new VendingMachine();
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Dime());
+            vendor.acceptCoin(new Nickel());
+            vendor.returnCoins();
+            assert.equal(vendor.insertedCoins.length, 0);
+        })
+        it('should not have any inserted funds', function () {
+            var vendor = new VendingMachine();
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Dime());
+            vendor.acceptCoin(new Nickel());
+            vendor.returnCoins();
+            assert.equal(vendor.insertedFunds, 0);
+        })
+        it('should display "insert coins"', function () {
+            var vendor = new VendingMachine();
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Dime());
+            vendor.acceptCoin(new Nickel());
+            vendor.returnCoins();
+            assert.equal(vendor.display, 'insert coin');
+        })
     })
  });

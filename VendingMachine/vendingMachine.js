@@ -55,5 +55,12 @@ class VendingMachine {
             return coin;
         }
     }
+
+    returnCoins() {
+        var coinsToReturn = this.insertedCoins;
+        this.insertedCoins = [];
+        this.insertedFunds = 0;
+        return coinsToReturn;
+    }
 }
 module.exports = VendingMachine;
