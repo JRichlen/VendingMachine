@@ -48,6 +48,7 @@ class VendingMachine {
 
     acceptCoin(coin) {
         if (this.isAcceptedCoin(coin)) {
+            this.addCoinToInsertedCoins(coin);
             return null;
         }
         else {
