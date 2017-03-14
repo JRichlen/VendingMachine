@@ -11,7 +11,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>8dfc54ed-9dcf-4ed4-868b-9b2814786e94</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>app.js</StartupFile>
+    <StartupFile>vendingMachine.js</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -43,7 +43,7 @@
     <Compile Include="test\test.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="app.js" />
+    <Compile Include="vendingMachine.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>

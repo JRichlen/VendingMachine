@@ -1,5 +1,5 @@
 ﻿var assert = require('assert');
-var VendingMachine = require('../app.js');
+var VendingMachine = require('../vendingMachine.js');
 var Quarter = require('../coins/quarter.js');
 var Dime = require('../coins/dime.js');
 var Nickel = require('../coins/nickel.js');
@@ -112,8 +112,7 @@ describe('VendingMachine', function () {
         })
     })
 
-    describe('#addCoinToInsertedCoins', function () {
-        
+    describe('#addCoinToInsertedCoins', function () {  
         it('should add coin to the inserted coins array', function () {
             var vendor = new VendingMachine();
             var coin = new Quarter();
@@ -147,6 +146,19 @@ describe('VendingMachine', function () {
             expectedFundsAfterCoinIsInserted += coin.value;
             vendor.addCoinToInsertedCoins(coin);
             assert.equal(vendor.insertedFunds, expectedFundsAfterCoinIsInserted);
+        })
+    })
+
+    describe('#acceptCoin', function () {
+        it('should return coin if not accepted', function () {
+            var vendor = new VendingMachine();
+            var coin = new Penny();
+            assert(vendor.acceptCoin(coin));
+        })
+        it('should not return the coin if accepted', function () {
+            var vendor = new VendingMachine();
+            var coin = new Quarter();
+            assert.equal(vendor.acceptCoin(coin), null);
         })
     })
  });

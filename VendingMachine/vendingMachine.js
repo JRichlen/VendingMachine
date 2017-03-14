@@ -46,5 +46,13 @@ class VendingMachine {
         this.insertedCoins.push(coin);
     }
 
+    acceptCoin(coin) {
+        if (this.isAcceptedCoin(coin)) {
+            return null;
+        }
+        else {
+            return coin;
+        }
+    }
 }
 module.exports = VendingMachine;
