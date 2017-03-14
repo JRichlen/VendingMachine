@@ -160,5 +160,17 @@ describe('VendingMachine', function () {
             var coin = new Quarter();
             assert.equal(vendor.acceptCoin(coin), null);
         })
+        it('should add accepted coin to inserted coins', function () {
+            var vendor = new VendingMachine();
+            var coin = new Quarter();
+            vendor.acceptCoin(coin);
+            assert(vendor.insertedCoins.length);
+        })
+        it('should add accepted coin\'s value to inserted funds', function () {
+            var vendor = new VendingMachine();
+            var coin = new Quarter();
+            vendor.acceptCoin(coin);
+            assert.equal(vendor.insertedFunds, 0.25);
+        })
     })
  });
