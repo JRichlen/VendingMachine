@@ -6,11 +6,18 @@ var Nickel = require('../coins/nickel.js');
 var Penny = require('../coins/penny.js');
 
 describe('VendingMachine', function () {
-
-    it('should return "insert coin"', function () {
-        var vendor = new VendingMachine();
-        assert.equal('insert coin', vendor.display);
-    });
+    describe('#display', function () {
+        it('should display "insert coin" when no coins are inserted', function () {
+            var vendor = new VendingMachine();
+            assert.equal(vendor.display, 'insert coin');
+        });
+        it('shoud display sum of inserted funds when there are inserted coins', function () {
+            var vendor = new VendingMachine();
+            vendor.insertedFunds = 0.25;
+            assert.equal(vendor.display, '0.25');
+        })
+    })
+    
 
     describe('#isCoin', function () {
         var vendor = new VendingMachine();
