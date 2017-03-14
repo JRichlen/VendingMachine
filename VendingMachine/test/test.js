@@ -173,4 +173,11 @@ describe('VendingMachine', function () {
             assert.equal(vendor.insertedFunds, 0.25);
         })
     })
+
+    describe('#returnCoins', function () {
+        it('should return inserted coins')
+        it('should not have any inserted coins')
+        it('should not have any inserted funds')
+        it('should display "insert coins"')
+    })
  });
