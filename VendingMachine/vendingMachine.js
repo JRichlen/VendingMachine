@@ -2,7 +2,20 @@
 
 class VendingMachine {
     constructor() {
-        this.products = {};
+        this.products = {
+            candy: {
+                quantity: 3,
+                price: 0.65
+            },
+            chips: {
+                quantity: 3,
+                price: 0.50
+            },
+            cola: {
+                quantity: 3,
+                price: 1.00
+            }
+        };
         this.storedCoins = [];
         this.insertedCoins = [];
         this.storedFunds = 0.00;
