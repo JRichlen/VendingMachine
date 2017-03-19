@@ -4,18 +4,18 @@ class VendingMachine {
     constructor() {
         this.products = {
             candy: {
-                quantity: 3,
-                price: 0.65,
+                unitCount: 3,
+                unitPrice: 0.65,
                 unit: 'piece of candy'
             },
             chips: {
-                quantity: 3,
-                price: 0.50,
+                unitCount: 3,
+                unitPrice: 0.50,
                 unit: 'bag of chips'
             },
             cola: {
-                quantity: 3,
-                price: 1.00,
+                unitCount: 3,
+                unitPrice: 1.00,
                 unit: 'bottle of cola'
             }
         };

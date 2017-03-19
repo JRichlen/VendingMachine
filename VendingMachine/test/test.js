@@ -221,7 +221,14 @@ describe('VendingMachine', function () {
             var vendor = new VendingMachine();
             assert.equal(vendor.selectProduct('candy'), 'piece of candy');
         })
-        it('should remove product from inventory')
+        it('should decrease unitCount by 1 when product is selected', function () {
+            var vendor = new VendingMachine();
+            var unitCountBefore = vendor.products['candy'].unitCount;
+            var unitCountAfter;
+            vendor.selectProduct('candy');
+            unitCountAfter = vendor.products['candy'].unitCount;
+            assert.equal(unitCountBefore - unitCountAfter, 1);
+        })
         
     })
  });
