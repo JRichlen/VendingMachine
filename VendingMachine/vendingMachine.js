@@ -80,7 +80,9 @@ class VendingMachine {
     }
 
     selectProduct(product) {
-        return this.products[product].unit;
+        var selectedProduct = this.products[product];
+        selectedProduct.unitCount--;
+        return selectedProduct.unit;
     }
 }
 module.exports = VendingMachine;
