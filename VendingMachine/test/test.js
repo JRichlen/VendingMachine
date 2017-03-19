@@ -17,7 +17,6 @@ describe('VendingMachine', function () {
             assert.equal(vendor.display, '0.25');
         })
     })
-    
 
     describe('#isCoin', function () {
         var vendor = new VendingMachine();
@@ -215,5 +214,14 @@ describe('VendingMachine', function () {
             vendor.returnCoins();
             assert.equal(vendor.display, 'insert coin');
         })
+    })
+
+    describe('#selectProduct', function () {
+        it('should return a unit of selected product', function () {
+            var vendor = new VendingMachine();
+            assert.equal(vendor.selectProduct('candy'), 'piece of candy');
+        })
+        it('should remove product from inventory')
+        
     })
  });

@@ -5,15 +5,18 @@ class VendingMachine {
         this.products = {
             candy: {
                 quantity: 3,
-                price: 0.65
+                price: 0.65,
+                unit: 'piece of candy'
             },
             chips: {
                 quantity: 3,
-                price: 0.50
+                price: 0.50,
+                unit: 'bag of chips'
             },
             cola: {
                 quantity: 3,
-                price: 1.00
+                price: 1.00,
+                unit: 'bottle of cola'
             }
         };
         this.storedCoins = [];
@@ -74,6 +77,10 @@ class VendingMachine {
         this.insertedCoins = [];
         this.insertedFunds = 0;
         return coinsToReturn;
+    }
+
+    selectProduct(product) {
+
     }
 }
 module.exports = VendingMachine;
