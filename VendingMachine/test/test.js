@@ -216,6 +216,23 @@ describe('VendingMachine', function () {
         })
     })
 
+    describe('#hasEnoughFundsInserted', function () {
+        it('should return false if not enough funds inserted to purchase selected product', function () {
+            var vendor = new VendingMachine();
+            var selectedProduct = vendor.products['candy'];
+            assert(!vendor.hasEnoughFundsInserted(selectedProduct));
+        })
+        it('should return true if enough funds inserted to purchase selected product', function () {
+            var vendor = new VendingMachine();
+            var selectedProduct = vendor.products['candy'];
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Dime());
+            vendor.acceptCoin(new Nickel());
+            assert(vendor.hasEnoughFundsInserted(selectedProduct));
+        })
+    })
+
     describe('#selectProduct', function () {
         it('should return a unit of selected product', function () {
             var vendor = new VendingMachine();
@@ -228,7 +245,6 @@ describe('VendingMachine', function () {
             vendor.selectProduct('candy');
             unitCountAfter = vendor.products['candy'].unitCount;
             assert.equal(unitCountBefore - unitCountAfter, 1);
-        })
-        
+        })  
     })
  });
