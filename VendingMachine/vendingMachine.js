@@ -80,7 +80,7 @@ class VendingMachine {
     }
 
     selectProduct(product) {
-
+        return this.products[product].unit;
     }
 }
 module.exports = VendingMachine;
