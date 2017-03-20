@@ -246,6 +246,13 @@ describe('VendingMachine', function () {
             vendor.display();
             assert.equal(vendor.display(), 'insert coin');
         })
+        it('should display insertedFunds after displaying price of product if coins are inserted', function () {
+            var vendor = new VendingMachine();
+            vendor.acceptCoin(new Quarter());
+            vendor.selectProduct('candy');
+            vendor.display();
+            assert.equal(vendor.display(), '$0.25');
+        })
         it('should display insertedFunds after displaying price of product if no coins inserted')
         it('should return a unit of selected product', function () {
             var vendor = new VendingMachine();
