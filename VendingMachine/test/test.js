@@ -244,12 +244,20 @@ describe('VendingMachine', function () {
         it('should display insertedFunds after displaying price of product if no coins inserted')
         it('should return a unit of selected product', function () {
             var vendor = new VendingMachine();
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Dime());
+            vendor.acceptCoin(new Nickel());
             assert.equal(vendor.selectProduct('candy'), 'piece of candy');
         })
         it('should decrease unitCount by 1 when product is selected', function () {
             var vendor = new VendingMachine();
             var unitCountBefore = vendor.products['candy'].unitCount;
             var unitCountAfter;
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Dime());
+            vendor.acceptCoin(new Nickel());
             vendor.selectProduct('candy');
             unitCountAfter = vendor.products['candy'].unitCount;
             assert.equal(unitCountBefore - unitCountAfter, 1);
