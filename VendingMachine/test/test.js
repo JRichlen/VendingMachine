@@ -220,7 +220,7 @@ describe('VendingMachine', function () {
         it('should return false if not enough funds inserted to purchase selected product', function () {
             var vendor = new VendingMachine();
             var selectedProduct = vendor.products['candy'];
-            assert(!vendor.hasEnoughFundsInserted(selectedProduct));
+            assert.equal(vendor.hasEnoughFundsInserted(selectedProduct), false);
         })
         it('should return true if enough funds inserted to purchase selected product', function () {
             var vendor = new VendingMachine();
@@ -229,7 +229,7 @@ describe('VendingMachine', function () {
             vendor.acceptCoin(new Quarter());
             vendor.acceptCoin(new Dime());
             vendor.acceptCoin(new Nickel());
-            assert(vendor.hasEnoughFundsInserted(selectedProduct));
+            assert.equal(vendor.hasEnoughFundsInserted(selectedProduct), true, vendor.insertedFunds + ' < ' + selectedProduct.unitPrice);
         })
     })
 

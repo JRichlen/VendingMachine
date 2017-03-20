@@ -79,6 +79,10 @@ class VendingMachine {
         return coinsToReturn;
     }
 
+    hasEnoughFundsInserted(selectedProduct) {
+        return this.insertedFunds >= selectedProduct.unitPrice;
+    }
+
     selectProduct(product) {
         var selectedProduct = this.products[product];
         selectedProduct.unitCount--;
