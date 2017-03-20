@@ -233,7 +233,15 @@ describe('VendingMachine', function () {
         })
     })
 
+
     describe('#selectProduct', function () {
+        it('should display price of product if not enough funds', function () {
+            var vendor = new VendingMachine();
+            vendor.selectProduct('candy');
+            assert.equal(vendor.display(), '$0.65');
+        })
+        it('should display "insert coin" after displaying price of product if no coins inserted')
+        it('should display insertedFunds after displaying price of product if no coins inserted')
         it('should return a unit of selected product', function () {
             var vendor = new VendingMachine();
             assert.equal(vendor.selectProduct('candy'), 'piece of candy');
@@ -245,6 +253,7 @@ describe('VendingMachine', function () {
             vendor.selectProduct('candy');
             unitCountAfter = vendor.products['candy'].unitCount;
             assert.equal(unitCountBefore - unitCountAfter, 1);
-        })  
+        })
+        
     })
  });
