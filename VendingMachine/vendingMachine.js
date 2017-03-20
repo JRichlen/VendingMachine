@@ -25,12 +25,19 @@ class VendingMachine {
         this.insertedFunds = 0.00;
     }
 
+    /**
     displayInsertCoin() {
         return 'insert coin';
     }
 
-    get display() {
+    /**get display() {
         return (this.insertedFunds > 0) ? String(this.insertedFunds) : this.displayInsertCoin();
+    }
+    **/
+    display(message) {
+        if (message) return message;
+        if (this.insertedFunds > 0) return '$' + String(this.insertedFunds);
+        return 'insert coin';
     }
 
     isCoin(coin, expectedWeight, expectedDiameter, coinValue) {
