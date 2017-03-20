@@ -23,6 +23,7 @@ class VendingMachine {
         this.insertedCoins = [];
         this.storedFunds = 0.00;
         this.insertedFunds = 0.00;
+        this.temporaryDisplayMessage = '';
     }
 
     /**
@@ -34,10 +35,14 @@ class VendingMachine {
         return (this.insertedFunds > 0) ? String(this.insertedFunds) : this.displayInsertCoin();
     }
     **/
-    display(message) {
-        if (message) return message;
-        if (this.insertedFunds > 0) return '$' + String(this.insertedFunds);
-        return 'insert coin';
+    display() {
+        if (this.temporaryDisplayMessage.length) {
+            var message = this.temporaryDisplayMessage;
+            this.temporaryDisplayMessage = '';
+            return message;
+        }
+        else if (this.insertedFunds > 0) return '$' + String(this.insertedFunds)
+        else return 'insert coin';
     }
 
     isCoin(coin, expectedWeight, expectedDiameter, coinValue) {
@@ -92,8 +97,15 @@ class VendingMachine {
 
     selectProduct(product) {
         var selectedProduct = this.products[product];
-        selectedProduct.unitCount--;
-        return selectedProduct.unit;
+        if (this.hasEnoughFundsInserted(selectedProduct)) {
+            selectedProduct.unitCount--;
+            return selectedProduct.unit;
+        }
+        else {
+            this.temporaryDisplayMessage = '$' + selectedProduct.unitPrice;
+            return null;
+        } 
+        
     }
 }
 module.exports = VendingMachine;

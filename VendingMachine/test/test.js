@@ -235,7 +235,7 @@ describe('VendingMachine', function () {
 
 
     describe('#selectProduct', function () {
-        it('should display price of product if not enough funds', function () {
+        it('should display price of product if not enough funds are inserted', function () {
             var vendor = new VendingMachine();
             vendor.selectProduct('candy');
             assert.equal(vendor.display(), '$0.65');
