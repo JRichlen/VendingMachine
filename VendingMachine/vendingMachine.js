@@ -26,22 +26,15 @@ class VendingMachine {
         this.temporaryDisplayMessage = '';
     }
 
-    /**
-    displayInsertCoin() {
-        return 'insert coin';
-    }
-
-    /**get display() {
-        return (this.insertedFunds > 0) ? String(this.insertedFunds) : this.displayInsertCoin();
-    }
-    **/
     display() {
         if (this.temporaryDisplayMessage.length) {
             var message = this.temporaryDisplayMessage;
             this.temporaryDisplayMessage = '';
             return message;
         }
-        else if (this.insertedFunds > 0) return '$' + String(this.insertedFunds)
+        else if (this.insertedFunds > 0) {
+            return '$' + String(this.insertedFunds)
+        }
         else return 'insert coin';
     }
 

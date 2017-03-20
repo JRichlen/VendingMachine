@@ -240,7 +240,12 @@ describe('VendingMachine', function () {
             vendor.selectProduct('candy');
             assert.equal(vendor.display(), '$0.65');
         })
-        it('should display "insert coin" after displaying price of product if no coins inserted')
+        it('should display "insert coin" after displaying price of product if no coins inserted', function () {
+            var vendor = new VendingMachine();
+            vendor.selectProduct('candy');
+            vendor.display();
+            assert.equal(vendor.display(), 'insert coin');
+        })
         it('should display insertedFunds after displaying price of product if no coins inserted')
         it('should return a unit of selected product', function () {
             var vendor = new VendingMachine();
