@@ -77,6 +77,10 @@ class VendingMachine {
         }
     }
 
+    makeChange() {
+
+    }
+
     returnCoins() {
         var coinsToReturn = this.insertedCoins;
         this.insertedCoins = [];

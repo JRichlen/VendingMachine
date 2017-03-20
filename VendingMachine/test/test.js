@@ -233,6 +233,29 @@ describe('VendingMachine', function () {
         })
     })
 
+    describe('#makeChange', function () {
+        it('should return an array', function () {
+            
+        })
+        it('should return true if it can make change', function () {
+            var vendor = new VendingMachine();
+            vendor.storedCoins.push(new Dime());
+            vendor.storedFunds = 0.10;
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            assert(vendor.makeChange(vendor.products.candy));
+        })
+        it('should return false if it can\'t make change', function () {
+            var vendor = new VendingMachine();
+            var expectedCoinsToBeReturned = [new Dime];
+            vendor.storedCoins.push(new Nickel());
+            vendor.storedFunds = 0.05;
+            vendor.insertedFunds = 0.75;
+            assert(vendor.makeChange(vendor.products.candy));
+        })
+    })
+
 
     describe('#selectProduct', function () {
         it('should display price of product if not enough funds are inserted', function () {
@@ -253,7 +276,6 @@ describe('VendingMachine', function () {
             vendor.display();
             assert.equal(vendor.display(), '$0.25');
         })
-        it('should display insertedFunds after displaying price of product if no coins inserted')
         it('should return a unit of selected product', function () {
             var vendor = new VendingMachine();
             vendor.acceptCoin(new Quarter());
