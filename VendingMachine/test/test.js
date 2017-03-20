@@ -9,12 +9,12 @@ describe('VendingMachine', function () {
     describe('#display', function () {
         it('should display "insert coin" when no coins are inserted', function () {
             var vendor = new VendingMachine();
-            assert.equal(vendor.display, 'insert coin');
+            assert.equal(vendor.display(), 'insert coin');
         });
         it('shoud display sum of inserted funds when there are inserted coins', function () {
             var vendor = new VendingMachine();
             vendor.insertedFunds = 0.25;
-            assert.equal(vendor.display, '0.25');
+            assert.equal(vendor.display(), '$0.25');
         })
     })
 
@@ -206,13 +206,13 @@ describe('VendingMachine', function () {
             vendor.returnCoins();
             assert.equal(vendor.insertedFunds, 0);
         })
-        it('should display "insert coins"', function () {
+        it('should display "insert coins" after coins are returned', function () {
             var vendor = new VendingMachine();
             vendor.acceptCoin(new Quarter());
             vendor.acceptCoin(new Dime());
             vendor.acceptCoin(new Nickel());
             vendor.returnCoins();
-            assert.equal(vendor.display, 'insert coin');
+            assert.equal(vendor.display(), 'insert coin');
         })
     })
 
