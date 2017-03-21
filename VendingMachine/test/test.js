@@ -181,16 +181,17 @@ describe('VendingMachine', function () {
     })
 
     describe('#returnCoins', function () {
-        it('should return inserted coins', function () {
+        it('should return inserted coins to coin return', function () {
             var expectedCoinsToBeReturned;
             var vendor = new VendingMachine();
             vendor.acceptCoin(new Quarter());
             vendor.acceptCoin(new Dime());
             vendor.acceptCoin(new Nickel());
             expectedCoinsToBeReturned = vendor.insertedCoins;
-            assert.equal(vendor.returnCoins(), expectedCoinsToBeReturned);
+            vendor.returnCoins()
+            assert.equal(vender.coinReturn, expectedCoinsToBeReturned);
         })
-        it('should not have any inserted coins', function () {
+        it('should not have any inserted coins after coins are returned', function () {
             var vendor = new VendingMachine();
             vendor.acceptCoin(new Quarter());
             vendor.acceptCoin(new Dime());
@@ -198,7 +199,7 @@ describe('VendingMachine', function () {
             vendor.returnCoins();
             assert.equal(vendor.insertedCoins.length, 0);
         })
-        it('should not have any inserted funds', function () {
+        it('should not have any inserted funds after coins are returned', function () {
             var vendor = new VendingMachine();
             vendor.acceptCoin(new Quarter());
             vendor.acceptCoin(new Dime());
