@@ -189,7 +189,7 @@ describe('VendingMachine', function () {
             vendor.acceptCoin(new Nickel());
             expectedCoinsToBeReturned = vendor.insertedCoins;
             vendor.returnCoins()
-            assert.equal(vender.coinReturn, expectedCoinsToBeReturned);
+            assert.equal(vendor.coinReturn, expectedCoinsToBeReturned);
         })
         it('should not have any inserted coins after coins are returned', function () {
             var vendor = new VendingMachine();

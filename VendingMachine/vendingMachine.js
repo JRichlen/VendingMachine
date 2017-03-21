@@ -24,6 +24,7 @@ class VendingMachine {
         this.storedFunds = 0.00;
         this.insertedFunds = 0.00;
         this.temporaryDisplayMessage = '';
+        this.coinReturn = [];
     }
 
     display() {
@@ -82,10 +83,9 @@ class VendingMachine {
     }
 
     returnCoins() {
-        var coinsToReturn = this.insertedCoins;
+        this.coinReturn = this.insertedCoins;
         this.insertedCoins = [];
         this.insertedFunds = 0;
-        return coinsToReturn;
     }
 
     hasEnoughFundsInserted(selectedProduct) {
