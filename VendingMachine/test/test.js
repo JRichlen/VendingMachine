@@ -234,6 +234,33 @@ describe('VendingMachine', function () {
         })
     })
 
+    describe('#countAvailableCoins', function () {
+        it('should return count 2 quarters', function () {
+            var vendor = new VendingMachine();
+            var quarters, dimes, nickels;
+            vendor.acceptCoin(new Quarter());
+            vendor.storedCoins.push(new Quarter());
+            vendor.countAvailableCoins(quarters, dimes, nickels);
+            assert.equal(quarters, 2);
+        })
+        it('should return count 2 dimes', function () {
+            var vendor = new VendingMachine();
+            var quarters, dimes, nickels;
+            vendor.acceptCoin(new Quarter());
+            vendor.storedCoins.push(new Quarter());
+            vendor.countAvailableCoins(quarters, dimes, nickels);
+            assert.equal(quarters, 2);
+        })
+        it('should return count 2 nickels', function () {
+            var vendor = new VendingMachine();
+            var quarters, dimes, nickels;
+            vendor.acceptCoin(new Quarter());
+            vendor.storedCoins.push(new Quarter());
+            vendor.countAvailableCoins(quarters, dimes, nickels);
+            assert.equal(quarters, 2);
+        })
+    })
+
 
     describe('#selectProduct', function () {
         it('should display price of product if not enough funds are inserted', function () {
