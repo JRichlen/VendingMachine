@@ -1,4 +1,8 @@
 'use strict';
+var Quarter = require('./coins/quarter.js');
+var Dime = require('./coins/dime.js');
+var Nickel = require('./coins/nickel.js');
+var Penny = require('./coins/penny.js');
 
 class VendingMachine {
     constructor() {
@@ -76,6 +80,23 @@ class VendingMachine {
         else {
             return coin;
         }
+    }
+
+    countAvailableCoins() {
+        var counts = {
+            quarters: 0,
+            dimes: 0,
+            nickels: 0
+        };
+        var availableCoins = []
+            .concat(this.insertedCoins)
+            .concat(this.storedCoins);
+        availableCoins.forEach(function (coin) {
+            if (coin instanceof Quarter) counts.quarters++
+            else if (coin instanceof Dime) counts.dimes++
+            else if (coin instanceof Nickel) counts.nickels++;
+        });
+        return counts;
     }
 
     makeChange() {

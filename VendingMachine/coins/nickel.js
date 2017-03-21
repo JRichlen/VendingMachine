@@ -4,5 +4,4 @@
         this.diameter = 21.21; 
     }
 }
-Object.freeze(Nickel);
 module.exports = Nickel;

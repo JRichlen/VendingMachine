@@ -237,27 +237,27 @@ describe('VendingMachine', function () {
     describe('#countAvailableCoins', function () {
         it('should return count 2 quarters', function () {
             var vendor = new VendingMachine();
-            var quarters, dimes, nickels;
+            var coins;
             vendor.acceptCoin(new Quarter());
             vendor.storedCoins.push(new Quarter());
-            vendor.countAvailableCoins(quarters, dimes, nickels);
-            assert.equal(quarters, 2);
+            coins = vendor.countAvailableCoins();
+            assert.equal(coins.quarters, 2);
         })
         it('should return count 2 dimes', function () {
             var vendor = new VendingMachine();
-            var quarters, dimes, nickels;
-            vendor.acceptCoin(new Quarter());
-            vendor.storedCoins.push(new Quarter());
-            vendor.countAvailableCoins(quarters, dimes, nickels);
-            assert.equal(quarters, 2);
+            var coins;
+            vendor.acceptCoin(new Dime());
+            vendor.storedCoins.push(new Dime());
+            coins = vendor.countAvailableCoins();
+            assert.equal(coins.dimes, 2);
         })
         it('should return count 2 nickels', function () {
             var vendor = new VendingMachine();
-            var quarters, dimes, nickels;
-            vendor.acceptCoin(new Quarter());
-            vendor.storedCoins.push(new Quarter());
-            vendor.countAvailableCoins(quarters, dimes, nickels);
-            assert.equal(quarters, 2);
+            var coins;
+            vendor.acceptCoin(new Nickel());
+            vendor.storedCoins.push(new Nickel());
+            coins = vendor.countAvailableCoins();
+            assert.equal(coins.nickels, 2);
         })
     })
 

@@ -4,5 +4,4 @@
         this.diameter = 24.26; 
     }
 }
-Object.freeze(Quarter);
 module.exports = Quarter;

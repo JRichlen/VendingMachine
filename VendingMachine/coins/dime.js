@@ -4,5 +4,4 @@
         this.diameter = 17.91;
     }
 }
-Object.freeze(Dime);
 module.exports = Dime;

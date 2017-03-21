@@ -4,5 +4,4 @@
         this.diameter = 19.05;
     }
 }
-Object.freeze(Penny);
 module.exports = Penny;
