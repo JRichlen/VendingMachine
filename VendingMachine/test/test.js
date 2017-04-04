@@ -234,37 +234,77 @@ describe('VendingMachine', function () {
         })
     })
 
-    describe('#countAvailableCoins', function () {
+    describe('#availableCoins', function () {
         it('should return count 2 quarters', function () {
             var vendor = new VendingMachine();
             var coins;
             vendor.acceptCoin(new Quarter());
             vendor.storedCoins.push(new Quarter());
-            coins = vendor.countAvailableCoins();
-            assert.equal(coins.quarters, 2);
+            coins = vendor.availableCoins();
+            assert.equal(coins.quarters.length, 2);
         })
         it('should return count 2 dimes', function () {
             var vendor = new VendingMachine();
             var coins;
             vendor.acceptCoin(new Dime());
             vendor.storedCoins.push(new Dime());
-            coins = vendor.countAvailableCoins();
-            assert.equal(coins.dimes, 2);
+            coins = vendor.availableCoins();
+            assert.equal(coins.dimes.length, 2);
         })
         it('should return count 2 nickels', function () {
             var vendor = new VendingMachine();
             var coins;
             vendor.acceptCoin(new Nickel());
             vendor.storedCoins.push(new Nickel());
-            coins = vendor.countAvailableCoins();
-            assert.equal(coins.nickels, 2);
+            coins = vendor.availableCoins();
+            assert.equal(coins.nickels.length, 2);
         })
     })
 
     describe('#makeChange', function () {
-        it('should return coins to the coin return', function () {
+        it('should not return any coins if change can\'t be made', function () {
             var vendor = new VendingMachine();
-            
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.selectProduct('candy');
+            assert.equal(vendor.coinReturn.length, 0);
+        })
+        it('should display "exact change only"', function () {
+            var vendor = new VendingMachine();
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.selectProduct('candy');
+            assert.equal(vendor.display(), 'exact change only');
+        })
+        it('should return 2 extra coins to the coin return', function () {
+            var vendor = new VendingMachine();
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.selectProduct('chips');
+            assert.equal(vendor.coinReturn.length, 2);
+        })
+        it('should put 2 coins into storage', function () {
+            var vendor = new VendingMachine();
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.selectProduct('chips');
+            assert.equal(vendor.storedCoins.length, 2);
+        })
+        it('should display "insert coins"', function () {
+            var vendor = new VendingMachine();
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.selectProduct('chips');
+            vendor.display();
+            assert.equal(vendor.display(), 'insert coin')
         })
     })
 

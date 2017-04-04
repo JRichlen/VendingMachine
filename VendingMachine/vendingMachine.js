@@ -82,31 +82,77 @@ class VendingMachine {
         }
     }
 
-    countAvailableCoins() {
-        var counts = {
-            quarters: 0,
-            dimes: 0,
-            nickels: 0
+    availableCoins() {
+        var coins = {
+            quarters: [],
+            dimes: [],
+            nickels: []
         };
         var availableCoins = []
             .concat(this.insertedCoins)
             .concat(this.storedCoins);
         availableCoins.forEach(function (coin) {
-            if (coin instanceof Quarter) counts.quarters++
-            else if (coin instanceof Dime) counts.dimes++
-            else if (coin instanceof Nickel) counts.nickels++;
+            if (coin instanceof Quarter) coins.quarters.push(coin)
+            else if (coin instanceof Dime) coins.dimes.push(coin)
+            else if (coin instanceof Nickel) coins.nickels.push(coin);
         });
-        return counts;
+        return coins;
     }
 
-    makeChange() {
-
+    makeChange(selectedProduct) {
+        var changeFundsNeeded = this.insertedFunds - selectedProduct.unitPrice;
+        var availableCoins = this.availableCoins();
+        var changeCoins = [];
+        var remainingCoins = [];
+        var coinCount = availableCoins.quarters.length;
+        for (var i = 0; i < coinCount; i++) {
+            if (changeFundsNeeded < 0.25) {
+                remainingCoins.push(availableCoins.quarters.splice(0, 1));
+            } 
+            else {
+                changeFundsNeeded -= 0.25;
+                changeCoins.push(availableCoins.quarters.splice(0, 1));
+            }
+        }
+        coinCount = availableCoins.dimes.length;
+        for (var i = 0; i < coinCount; i++) {
+            if (changeFundsNeeded < 0.10) {
+                remainingCoins.push(availableCoins.dimes.splice(0, 1));
+            }
+            else {
+                changeFundsNeeded -= 0.10;
+                changeCoins.push(availableCoins.dimes.splice(0, 1));
+            }
+            
+        }
+        coinCount = availableCoins.nickels.length;
+        for (var i = 0; i < coinCount; i++) {
+            if (changeFundsNeeded < 0.05) {
+                remainingCoins.push(availableCoins.nickels.splice(0, 1)); 
+            }
+            else {
+                changeFundsNeeded -= 0.05;
+                changeCoins.push(availableCoins.nickels.splice(0, 1));
+            }
+        }
+        this.storedCoins = remainingCoins;
+        this.insertedCoins = changeCoins;
+        this.returnCoins();
+        if (changeFundsNeeded > 0) {
+            this.temporaryDisplayMessage = "exact change only";
+            return false;
+        }
+        else {
+            return true;
+        }
+        
     }
 
     returnCoins() {
         this.coinReturn = this.insertedCoins;
         this.insertedCoins = [];
         this.insertedFunds = 0;
+        
     }
 
     hasEnoughFundsInserted(selectedProduct) {
@@ -116,8 +162,10 @@ class VendingMachine {
     selectProduct(product) {
         var selectedProduct = this.products[product];
         if (this.hasEnoughFundsInserted(selectedProduct)) {
-            selectedProduct.unitCount--;
-            return selectedProduct.unit;
+            if (this.makeChange(selectedProduct)) {
+                selectedProduct.unitCount--;
+                return selectedProduct.unit;
+            }
         }
         else {
             this.temporaryDisplayMessage = '$' + selectedProduct.unitPrice;

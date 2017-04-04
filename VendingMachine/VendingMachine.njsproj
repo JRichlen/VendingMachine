@@ -41,9 +41,6 @@
     <Compile Include="coins\penny.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="main.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="test\test.js">
       <SubType>Code</SubType>
     </Compile>
