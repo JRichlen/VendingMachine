@@ -261,6 +261,12 @@ describe('VendingMachine', function () {
         })
     })
 
+    describe('#makeChange', function () {
+        it('should return coins to the coin return', function () {
+            var vendor = new VendingMachine();
+            
+        })
+    })
 
     describe('#selectProduct', function () {
         it('should display price of product if not enough funds are inserted', function () {

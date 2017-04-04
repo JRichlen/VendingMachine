@@ -28,6 +28,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="bundle.js" />
     <Compile Include="coins\dime.js">
       <SubType>Code</SubType>
     </Compile>
@@ -38,6 +39,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="coins\penny.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="main.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="test\test.js">
