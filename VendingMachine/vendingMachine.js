@@ -164,6 +164,7 @@ class VendingMachine {
         if (this.hasEnoughFundsInserted(selectedProduct)) {
             if (this.makeChange(selectedProduct)) {
                 selectedProduct.unitCount--;
+                this.temporaryDisplayMessage = 'thank you';
                 return selectedProduct.unit;
             }
         }

@@ -340,6 +340,15 @@ describe('VendingMachine', function () {
             vendor.acceptCoin(new Nickel());
             assert.equal(vendor.selectProduct('candy'), 'piece of candy');
         })
+        it('should display "thank you" after a product is vended', function () {
+            var vendor = new VendingMachine();
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Quarter());
+            vendor.acceptCoin(new Dime());
+            vendor.acceptCoin(new Nickel());
+            vendor.selectProduct('candy');
+            assert.equal(vendor.display(), 'thank you');
+        })
         it('should decrease unitCount by 1 when product is selected', function () {
             var vendor = new VendingMachine();
             var unitCountBefore = vendor.products['candy'].unitCount;
