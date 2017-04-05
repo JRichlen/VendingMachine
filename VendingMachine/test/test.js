@@ -314,6 +314,11 @@ describe('VendingMachine', function () {
             vendor.selectProduct('candy');
             assert.equal(vendor.display(), '$0.65');
         })
+        it('should not return any coins if not enough funds are inserted', function () {
+            var vendor = new VendingMachine();
+            vendor.selectProduct('candy');
+            assert.equal(vendor.coinReturn.length, 0);
+        })
         it('should display "insert coin" after displaying price of product if no coins inserted', function () {
             var vendor = new VendingMachine();
             vendor.selectProduct('candy');

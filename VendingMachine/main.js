@@ -3,6 +3,7 @@
     var $vendor = $('#vendingMachine');
     var $display = $vendor.find('#display');
     var $coinReturn = $vendor.find('#coinReturn');
+    var $productBin = $vendor.find('#productBin');
 
     function insertCoin(event) {
         var coin = event.target.dataset.coin;
@@ -35,12 +36,18 @@
 
     function selectProduct(event) {
         var product = event.target.dataset.product;
-        vendor.selectProduct(product);
+        $productBin.html('<tr><td>' + vendor.selectProduct(product) + '<td><tr>');
         displayReturnCoins();
         checkDisplay();
     }
 
+    function clearProductBinAndReturnCoinsDisplays() {
+        $coinReturn.empty();
+        $productBin.empty();
+    }
+
     $vendor.on('click', '.insertCoin', insertCoin);
+    $vendor.on('click', '.insertCoin', clearProductBinAndReturnCoinsDisplays);
     $vendor.on('click', '#returnCoins', returnCoins);
     $vendor.on('click', '.selectProduct', selectProduct);
     $vendor.on('click', '#checkDisplay', checkDisplay);
