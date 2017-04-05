@@ -27,10 +27,11 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th id="display"></th>
+                                    <td id="display"></td>
                                 </tr>
                             </tbody>
                         </table>
+                        
                     </div>
                     <div class="col-sm-4">
                         <table>
@@ -57,8 +58,13 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-
+        <div class="container"> 
+            <div class="row">
+                <div class="col-sm-12">
+                    <button type="button" class="btn btn-secondary btn-lg btn-block" id="checkDisplay">Check Display</button>
+                </div>
+            </div>
+            <hr />
             <div class="row">
                 <div class="col-sm-2">
                     <label>Select Coin to Insert</label>
@@ -82,9 +88,9 @@
                     <label>Select Product</label>
                 </div>
                 <div class="col-sm-10">
-                    <button type="button" class="btn btn-secondary btn-lg">Candy</button>
-                    <button type="button" class="btn btn-secondary btn-lg">Chips</button>
-                    <button type="button" class="btn btn-secondary btn-lg">Cola</button>
+                    <button type="button" class="btn btn-secondary btn-lg selectProduct" data-product="candy">Candy</button>
+                    <button type="button" class="btn btn-secondary btn-lg selectProduct" data-product="chips">Chips</button>
+                    <button type="button" class="btn btn-secondary btn-lg selectProduct" data-product="cola">Cola</button>
                 </div>
             </div>
         </div>

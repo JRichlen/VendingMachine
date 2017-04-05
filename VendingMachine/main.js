@@ -36,9 +36,12 @@
     function selectProduct(event) {
         var product = event.target.dataset.product;
         vendor.selectProduct(product);
+        displayReturnCoins();
         checkDisplay();
     }
 
     $vendor.on('click', '.insertCoin', insertCoin);
     $vendor.on('click', '#returnCoins', returnCoins);
+    $vendor.on('click', '.selectProduct', selectProduct);
+    $vendor.on('click', '#checkDisplay', checkDisplay);
 })
