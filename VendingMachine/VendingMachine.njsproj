@@ -41,10 +41,16 @@
     <Compile Include="coins\penny.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="main.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="test\test.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="vendingMachine.js" />
+    <Content Include="index.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>

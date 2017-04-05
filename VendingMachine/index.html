@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Vending Machine Kata</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="bundle.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="vendingMachine">
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Vending Machine</h1>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-4">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Display</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th id="display"></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-4">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Coin Return</th>
+                                </tr>
+                            </thead>
+                            <tbody id="coinReturn"></tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-4">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product Bin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <td id="productBin"></td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Select Coin to Insert</label>
+                </div>
+                <div class="col-sm-10">
+                    <button type="button" class="btn btn-secondary btn-lg insertCoin" data-coin="quarter">Quarter</button>
+                    <button type="button" class="btn btn-secondary btn-lg insertCoin" data-coin="dime">Dime</button>
+                    <button type="button" class="btn btn-secondary btn-lg insertCoin" data-coin="nickel">Nickel</button>
+                    <button type="button" class="btn btn-secondary btn-lg insertCoin" data-coin="penny">Penny</button>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-sm-12">
+                    <button type="button" class="btn btn-secondary btn-lg btn-block" id="returnCoins">Return Coins</button>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Select Product</label>
+                </div>
+                <div class="col-sm-10">
+                    <button type="button" class="btn btn-secondary btn-lg">Candy</button>
+                    <button type="button" class="btn btn-secondary btn-lg">Chips</button>
+                    <button type="button" class="btn btn-secondary btn-lg">Cola</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

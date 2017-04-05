@@ -4,24 +4,28 @@ class Dime {
         this.diameter = 17.91;
     }
 }
+
 class Nickel {
     constructor() {
         this.weight = 5;
         this.diameter = 21.21; 
     }
 }
+
 class Penny {
     constructor() {
         this.weight = 2.5;
         this.diameter = 19.05;
     }
 }
+
 class Quarter {
     constructor() {
         this.weight = 5.67;
         this.diameter = 24.26; 
     }
 }
+
 class VendingMachine {
     constructor() {
         this.products = {
@@ -82,7 +86,7 @@ class VendingMachine {
     }
 
     isAcceptedCoin(coin) {
-        return this.isQuarter(coin) || this.isNickel(coin) || this.isDime(coin) || false;
+        return this.isQuarter(coin) || this.isNickel(coin) || this.isDime(coin) || false; 
     }
 
     addCoinToInsertedCoins(coin) {
@@ -122,16 +126,18 @@ class VendingMachine {
         var availableCoins = this.availableCoins();
         var changeCoins = [];
         var remainingCoins = [];
-        for (var i = 0; i < availableCoins.quarters.length; i++) {
+        var coinCount = availableCoins.quarters.length;
+        for (var i = 0; i < coinCount; i++) {
             if (changeFundsNeeded < 0.25) {
                 remainingCoins.push(availableCoins.quarters.splice(0, 1));
-            }
+            } 
             else {
                 changeFundsNeeded -= 0.25;
                 changeCoins.push(availableCoins.quarters.splice(0, 1));
             }
         }
-        for (var i = 0; i < availableCoins.dimes.length; i++) {
+        coinCount = availableCoins.dimes.length;
+        for (var i = 0; i < coinCount; i++) {
             if (changeFundsNeeded < 0.10) {
                 remainingCoins.push(availableCoins.dimes.splice(0, 1));
             }
@@ -139,11 +145,12 @@ class VendingMachine {
                 changeFundsNeeded -= 0.10;
                 changeCoins.push(availableCoins.dimes.splice(0, 1));
             }
-
+            
         }
-        for (var i = 0; i < availableCoins.nickels.length; i++) {
+        coinCount = availableCoins.nickels.length;
+        for (var i = 0; i < coinCount; i++) {
             if (changeFundsNeeded < 0.05) {
-                remainingCoins.push(availableCoins.nickels.splice(0, 1));
+                remainingCoins.push(availableCoins.nickels.splice(0, 1)); 
             }
             else {
                 changeFundsNeeded -= 0.05;
@@ -160,14 +167,14 @@ class VendingMachine {
         else {
             return true;
         }
-
+        
     }
 
     returnCoins() {
         this.coinReturn = this.insertedCoins;
         this.insertedCoins = [];
         this.insertedFunds = 0;
-
+        
     }
 
     hasEnoughFundsInserted(selectedProduct) {
@@ -185,8 +192,7 @@ class VendingMachine {
         else {
             this.temporaryDisplayMessage = '$' + selectedProduct.unitPrice;
             return null;
-        }
-
+        } 
+        
     }
 }
-var vendor = new VendingMachine();
