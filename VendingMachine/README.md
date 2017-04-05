@@ -12,7 +12,13 @@ var vendor = new VendingMachine();
 vendor.display(); // "insert coin"
 var coin = new Quarter();
 vendor.acceptCoin(coin);
-vendor.display(); // "$0.25"
+vendor.selectProduct('chips');
+vendor.display(); // "$0.50" required funds for product
+vendor.display(); // "$0.25" inserted funds
+vendor.acceptCoin(new Quarter());
+vendor.acceptCoin(new Dime());
+vendor.selectProduct('chips'); // returns "bag of chips"
+vendor.display(); // "insert coins"
 ```
 
 `index.html` can be opened in an ES6 compatible browser for an interactive user interface. 
